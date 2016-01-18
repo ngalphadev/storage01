@@ -70,3 +70,10 @@ Fix  Errors Storage IONIC App  Project in LocalComputer :
 	- in this casr use chorme not firefox
 	Source : http://stackoverflow.com/questions/18605614/error-processing-sql-typeerror-window-opendatabase-is-not-a-function
 	
+	
+		Error 2: TypeError: Cannot read property 'openDatabase' of undefined
+       		Solution
+			-replace in www/app.js :   db = $cordovaSQLite.openDB("my.db");
+			-by      : if(window.cordova){ db=$cordovaSQLite.openDB({ name: "my.db" }); //device } else {
+            db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window }
+	

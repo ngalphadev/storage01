@@ -34,8 +34,12 @@ Fix Errors Storage IONIC App  Project in c9.io
 		Error 1 : TypeError: Cannot read property 'openDatabase' of undefined
        		Solution
 			-replace in www/app.js :   db = $cordovaSQLite.openDB("my.db");
-			-by      : if(window.cordova){ db=$cordovaSQLite.openDB({ name: "my.db" }); //device } else {
-            db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window }
+			-by      : 
+			if(window.cordova){ 
+			  db=$cordovaSQLite.openDB({ name: "my.db" }); //device 
+			  } else {
+            db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window 
+            }
 
 		
 

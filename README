@@ -1,0 +1,71 @@
+STORAGE APP
+
+
+Tutorial :  Use SQLite Instead of Local Storage In Ionic Framework
+Tutorial Video : https://www.youtube.com/watch?v=lxrsT4n86YI
+Tutorial Article : https://blog.nraboy.com/2014/11/use-sqlite-instead-local-storage-ionic-framework/
+
+
+
+Storage IONIC App  Project in c9.io :
+
+	Name of the C9 project : storage01
+		
+	Name of the IONIC App project : storage01
+
+		1- go to c9.io
+		2- create  Create a new node.js project : storage01
+		3- open a terminal in the storage01 workspace project
+		4- tape int the terminal :
+		 	-  npm install -g cordova ionic
+			-  ionic start storage01 blank
+			-  cd storage01
+			-  cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+			-  ionic serve -p $PORT
+	
+
+Fix Errors Storage IONIC App  Project in c9.io
+
+		Error 1 : TypeError: Cannot read property 'openDatabase' of undefined
+       		Solution
+			-replace :   db = $cordovaSQLite.openDB("my.db");
+ 
+
+           
+			-by      : if(window.cordova){
+ db=$cordovaSQLite.openDB({ name: "my.db" }); //device
+  
+		  			} else {
+ db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window
+            
+						}
+
+		links : https://www.npmjs.com/package/cordova-plugin-sqlite
+
+
+
+Storage IONIC App  Project in LocalComputer :
+
+	Name of the Directory project : IonicProjects
+		
+	Name of the IONIC App project : storage01
+
+		1- open a terminal in windows : cmd
+		2- in the terminal create a new Ionic Project directory : mkdir IonicProjects
+		3- tape in 
+			-  cd IonicProjects
+		 	-  npm install -g cordova ionic
+			-  ionic start storage01 blank
+			-  cd storage01
+			-  cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+			-  ionic serve 
+
+Fix  Errors Storage IONIC App  Project in LocalComputer : 
+
+	Error 1 : Error processing SQL: TypeError: window.openDatabase is not a function
+       	Solution
+	You are using Web SQL Database, which is not supported by Firefox. Also, the specification is abandoned by the W3C.
+
+	- in this casr use chorme not firefox
+	Source : http://stackoverflow.com/questions/18605614/error-processing-sql-typeerror-window-opendatabase-is-not-a-function
+	

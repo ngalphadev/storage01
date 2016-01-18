@@ -49,7 +49,7 @@ Storage IONIC App  Project in LocalComputer :
 
 		1- open a terminal in windows : cmd
 		2- in the terminal create a new Ionic Project directory : mkdir IonicProjects
-		3- tape in 
+		3- tape in the termianl
 			-  cd IonicProjects
 		 	-  npm install -g cordova ionic
 			-  ionic start storage01 blank

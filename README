@@ -14,7 +14,7 @@ Storage IONIC App  Project in c9.io :
 	Name of the IONIC App project : storage01
 
 		1- go to c9.io
-		2- create  Create a new node.js project : storage01
+		2- create  a new node.js project : storage01
 		3- open a terminal in the storage01 workspace project
 		4- tape in the terminal :
 		 a	-  npm install -g cordova ionic

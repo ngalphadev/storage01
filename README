@@ -4,7 +4,7 @@ STORAGE APP
 Tutorial :  Use SQLite Instead of Local Storage In Ionic Framework
 Tutorial Video : https://www.youtube.com/watch?v=lxrsT4n86YI
 Tutorial Article : https://blog.nraboy.com/2014/11/use-sqlite-instead-local-storage-ionic-framework/
-
+links : https://www.npmjs.com/package/cordova-plugin-sqlite
 
 
 Storage IONIC App  Project in c9.io :
@@ -16,31 +16,28 @@ Storage IONIC App  Project in c9.io :
 		1- go to c9.io
 		2- create  Create a new node.js project : storage01
 		3- open a terminal in the storage01 workspace project
-		4- tape int the terminal :
-		 	-  npm install -g cordova ionic
-			-  ionic start storage01 blank
-			-  cd storage01
-			-  cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
-			-  ionic serve -p $PORT
+		4- tape in the terminal :
+		 a	-  npm install -g cordova ionic
+		 b	-  ionic start storage01 blank
+		
+		5- download the : last version of ng-cordova and copy ng-cordova.min.js file in the  nameProject/nameApp/www/js
+		 - in this case : copy ng-cordova.min.js file in  storage01/storage01/www/js/
+		
+		6- tape in the terminal
+		 a	-  cd storage01
+		 b  -  cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+	   c 	-  ionic serve -p $PORT
 	
 
 Fix Errors Storage IONIC App  Project in c9.io
 
 		Error 1 : TypeError: Cannot read property 'openDatabase' of undefined
        		Solution
-			-replace :   db = $cordovaSQLite.openDB("my.db");
- 
+			-replace in www/app.js :   db = $cordovaSQLite.openDB("my.db");
+			-by      : if(window.cordova){ db=$cordovaSQLite.openDB({ name: "my.db" }); //device } else {
+            db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window }
 
-           
-			-by      : if(window.cordova){
- db=$cordovaSQLite.openDB({ name: "my.db" }); //device
-  
-		  			} else {
- db=window.openDatabase("my.db",'1','my',1024 *1024 *100); //window
-            
-						}
-
-		links : https://www.npmjs.com/package/cordova-plugin-sqlite
+		
 
 
 
@@ -56,6 +53,10 @@ Storage IONIC App  Project in LocalComputer :
 			-  cd IonicProjects
 		 	-  npm install -g cordova ionic
 			-  ionic start storage01 blank
+			
+		4- download the : last version of ng-cordova and copy ng-cordova.min.js file in the  nameProject/nameApp/www/js
+		
+		5- in this case : copy ng-cordova.min.js file in  storage01/storage01/www/js/
 			-  cd storage01
 			-  cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 			-  ionic serve 
